@@ -1,0 +1,39 @@
+<html>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>定时器示例</title>
+  </head>
+  <body>
+  
+  <input type="text" id="result">
+  
+  <input type="button" value="开始" >
+  <input type="button" value="结束" >
+  
+  <script>
+    var txt =document.getElementsByTagName("input")[0];
+	var start =document.getElementsByTagName("input")[1];
+	var end =document.getElementsByTagName("input")[2];
+	var n=0;timer=null;
+	//开始
+    start.onclick=function(){
+	    clearInterval(timer);
+		timer=setInterval(function() {
+		    n++;
+			var m=parseInt(n/60);
+            var s=parseInt(n%60);
+            txt.value=toDub(m)+":"+toDub(s);
+		},1000/60);
+	};
+	end.onclick=function(){
+		 clearInterval(timer);
+	}
+		
+	function toDub(n){
+    return n<10?"0"+n:""+n;
+    }
+  </script>
+  </body>
+  </html>
